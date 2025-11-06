@@ -21,9 +21,9 @@ elif torch.backends.mps.is_available():
 else:
     DEVICE = "cpu"
 
-LEARNING_RATE = 4e-4
+LEARNING_RATE = 3e-6
 BATCH_SIZE = 4
-NUM_EPOCHS = 10
+NUM_EPOCHS = 5
 IMG_HEIGHT = 512
 IMG_WIDTH = 512 
 
@@ -303,8 +303,8 @@ def main():
     #loss_fn = DiceBCELoss()
     loss_fn = TverskyLoss()
 
-    optimizer = optim.SGD(model.parameters(), lr=LEARNING_RATE, momentum=0.48)
-    #optimizer = optim.Adam(model.parameters(), lr=LEARNING_RATE)
+    #optimizer = optim.SGD(model.parameters(), lr=LEARNING_RATE, momentum=0.48)
+    optimizer = optim.Adam(model.parameters(), lr=LEARNING_RATE)
  
     
     # --- 4. Create Datasets and DataLoaders ---
